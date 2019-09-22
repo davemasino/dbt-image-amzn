@@ -2,5 +2,5 @@
 dbt image based on Amazon Linux 2
 
 ```bash
-$ docker build -t slalombuild/dbt-amzn .
+$ docker build --rm -t slalombuild/dbt-amzn .
 ```
