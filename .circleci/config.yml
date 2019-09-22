@@ -14,20 +14,11 @@ jobs:
       - run: 
           name: Test Docker image
           command: |
-            docker run slalombuild/dbt-amzn dbt --version 2>&1|grep 'Up to date'
+            docker run slalombuild/dbt-amzn dbt --version 2>&1 | grep 'installed version: 0.14.2'
       - run: 
           name: Verify image size
           command: |
             docker images | grep slalombuild/dbt-amzn | grep 'MB$'
-      # - run:
-      #     name: "Set Python version"
-      #     command: pyenv global 3.7.0
-      # - run: 
-      #     name: Run Python tests
-      #     command: |
-      #       pip install --upgrade pip
-      #       pip install -r requirements-dev.txt
-      #       tox
 workflows:
   version: 2
   build_and_test:

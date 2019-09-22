@@ -1,4 +1,4 @@
-FROM amazonlinux:2
+FROM amazonlinux:2.0.20190823.1
 
 LABEL maintainer="Dave Masino <davem@slalom.com>"
 
@@ -36,4 +36,3 @@ RUN set -ex \
 
 USER dbt
 WORKDIR ${DBT_HOME}
-
