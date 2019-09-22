@@ -12,9 +12,7 @@ ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 RUN set -ex \
     && yum update -y \
     && yum install git gcc tar make -y \
-    && yum install zlib-devel bzip2 bzip2-devel readline-devel sqlite \
-        sqlite-devel openssl-devel xz xz-devel libffi-devel findutils -y \
-    && yum install nmap-ncat -y \
+    && yum install zlib-devel libffi-devel bzip2-devel readline-devel openssl-devel -y \
     && useradd -ms /bin/bash -d ${DBT_HOME} dbt \
     && git clone https://github.com/pyenv/pyenv.git ${DBT_HOME}/.pyenv \
     && pyenv install $PYTHON_VERSION \
@@ -23,8 +21,7 @@ RUN set -ex \
     && pip install --no-cache-dir dbt==${DBT_VERSION} \
     && yum clean all \
     && yum autoremove gcc tar make -y \
-    && yum autoremove zlib-devel bzip2 bzip2-devel sqlite-devel openssl-devel \
-        xz xz-devel libffi-devel findutils -y \
+    && yum autoremove zlib-devel libffi-devel bzip2-devel readline-devel openssl-devel -y \
     && rm -rf \
         /tmp/* \
         /var/tmp/* \
